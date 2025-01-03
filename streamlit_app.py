@@ -5,6 +5,7 @@ from snowflake.snowpark.functions import col
 
 #New section to display smoothiefroot nutrition information
 import requests
+import Pandas as pd
 
 # Write directly to the app
 st.title("CHOOSE FROM THE MENU :balloon:")
