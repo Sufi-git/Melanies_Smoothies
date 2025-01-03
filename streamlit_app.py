@@ -5,7 +5,7 @@ from snowflake.snowpark.functions import col
 
 #New section to display smoothiefroot nutrition information
 import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/"+Fruit_chosen)
 # st.text(smoothiefroot_response.json())
 sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
@@ -32,6 +32,7 @@ if Ingredients_List:
     Ingredients_string=''
     for Fruit_chosen in Ingredients_List:
         Ingredients_string+=Fruit_chosen+' '
+        st.suheader(Fruit_chosen+'Nutrition Information')
 #    st.write(Ingredients_string)
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,Name_on_order)
